@@ -19,6 +19,8 @@
     main{padding-bottom:72px}.story{max-width:740px;text-align:center;margin:55px auto 52px}.overline{color:#a47c44;font-size:13px;font-weight:bold;letter-spacing:.8px}.story h2,.join h2{font-size:clamp(26px,4vw,37px);line-height:1.2;margin:9px 0 19px;color:#1d3039}.story p{font-size:18px;margin:0 auto 13px}.story strong{color:#253b42}
     .band{background:#f0e9dd;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;text-align:center;font-size:19px}.band strong{color:#775329}
     .join{max-width:710px;margin:55px auto 0}.form-card{background:white;border:1px solid #e9e1d6;box-shadow:0 18px 55px #26343a0d;border-radius:22px;padding:clamp(20px,5vw,39px)}.join>p{text-align:center;color:#56676d;margin:-8px 0 27px}.join h2{text-align:center}fieldset{border:0;margin:0;padding:0;min-width:0}legend,.field-label{display:block;font-size:16px;font-weight:700;color:#26343a;margin:0 0 11px}.form-group{margin-bottom:26px}.amounts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.choice{cursor:pointer;position:relative;display:block}.choice input{position:absolute;opacity:0;width:1px;height:1px}.choice span{display:flex;align-items:center;justify-content:center;border:1.5px solid #e5d8c5;border-radius:12px;min-height:57px;font-weight:700;font-size:19px;background:#fffcf7;transition:.15s}.choice input:checked+span{border-color:#ac8047;background:#f8eddb;color:#744d1e;box-shadow:0 0 0 2px #ac804722}.choice input:focus-visible+span{outline:3px solid var(--ring);outline-offset:3px}.choice-small span{font-size:14px;min-height:52px;padding:8px;text-align:center}.twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px}.input{display:block;width:100%;border:1.5px solid #dedbd4;border-radius:10px;background:#fff;font:16px Arial,sans-serif;min-height:50px;padding:11px 13px;color:#26343a}.input::placeholder{color:#91999b}textarea.input{min-height:90px;resize:vertical}.hint{color:#6d7678;font-size:13px;margin-top:8px}.payment-instructions{font-size:17px;font-weight:700;line-height:1.8;color:#173b4a;background:#eef5f6;border:2px solid #aac4cb;border-right:5px solid #b18a51;border-radius:12px;padding:14px 17px;margin-top:14px;white-space:pre-line}.disclaimer{font-size:14px;color:#657477;background:#f5f7f6;padding:14px 16px;border-radius:10px;margin:20px 0}.smallprint{font-size:12px;color:#768083;text-align:center;margin:14px 0 0}.hidden{display:none!important}.error{display:none;color:#9b312d;font-size:13px;margin-top:6px}.footer{text-align:center;font-size:13px;color:#727978;padding-top:35px}.footer strong{color:#35494d}
+    .monthly-note{background:#fff7e7;border:1px solid #e9d4a9;border-right:4px solid #b18a51;border-radius:10px;color:#684718;font-size:14px;font-weight:700;line-height:1.65;padding:12px 14px;margin-top:13px}
+    .privacy-consent{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#364a52;margin:15px 0}.privacy-consent input{width:19px;height:19px;flex:none;accent-color:#8b622f;margin-top:4px}
     .amount-legend-note{display:inline-block;font-size:13px;font-weight:400;color:#6d7678;margin-inline-start:12px}
     @media(max-width:600px){.hero .wrap{padding:47px 18px 55px}.hero p{font-size:16px}.stats{gap:8px}.stat{min-width:0;flex:1;padding:11px 8px}.stat strong{font-size:20px}.story{margin:38px auto}.story p{font-size:16px}.amounts{grid-template-columns:repeat(2,1fr)}.twocol{grid-template-columns:1fr}.join{margin-top:38px}.band{font-size:17px}.form-card{padding:20px}}
   </style>
@@ -52,12 +54,13 @@
     <section class="join wrap" id="join" aria-labelledby="join-heading">
       <div class="overline" style="text-align:center">בקשת שותפות</div>
       <h2 id="join-heading">ביחד נמשיך את הלימוד</h2>
-      <p>ממלאים פרטים, ולאחר קבלת הבקשה נשלח אליכם קישור אישי לתשלום.</p>
+      <p>בחרו סכום ואופן השתתפות. לאחר שליחת הבקשה תוכלו להשלים את התשלום בהתאם להנחיות, או שנתאם עמכם את המשך התהליך.</p>
       <div class="form-card">
         <!-- Requests are sent to FormSubmit. Recipient must activate via email on first submission. -->
         <form name="kollel-partnership" method="POST" action="https://formsubmit.co/eliyahunakash@gmail.com" id="partnerForm">
           <input type="hidden" name="_template" value="table" />
           <input type="hidden" name="_subject" value="בקשת שותפות חדשה – כולל אנט בת כרמלה" />
+          <input type="hidden" name="_next" id="thankYouUrl" value="https://clinicmanager-nakash.github.io/kollel-anet/thanks.html" />
           <div class="hidden" aria-hidden="true"><label>השאירו ריק: <input type="text" name="_honey" tabindex="-1" autocomplete="off" /></label></div>
           <div class="form-group"><fieldset>
             <legend>בחרו סכום <span class="amount-legend-note">400 ₪ – עלות אחזקת אברך לחודש</span></legend>
@@ -84,14 +87,28 @@
                 <option value="אחר – צרו איתי קשר">אחר (צרו איתי קשר)</option>
               </select>
               <div class="payment-instructions hidden" id="paymentInstructions" aria-live="polite" style="margin-top:12px"></div>
+              <fieldset id="transferConfirmationWrap" class="hidden" style="margin-top:14px">
+                <legend>סטטוס ההעברה</legend>
+                <div class="twocol">
+                  <label class="choice choice-small"><input type="radio" name="transfer_status" value="כבר ביצעתי העברה" disabled /><span>כבר ביצעתי העברה</span></label>
+                  <label class="choice choice-small"><input type="radio" name="transfer_status" value="אבצע את ההעברה בהמשך" disabled /><span>אבצע את ההעברה בהמשך</span></label>
+                </div>
+                <div class="hint">זהו דיווח על ביצוע ההעברה בלבד. קבלת הכסף תיבדק בנפרד.</div>
+              </fieldset>
             </div>
-            <div class="hint" id="frequencyNote">בחירת השתתפות חודשית – בתיאום מולכם, באופן שנוח לכם וללא התחייבות. לא מתבצע חיוב אוטומטי.</div>
+            <div class="monthly-note" id="frequencyNote">השתתפות חודשית תוסדר בתיאום אישי, באופן שנוח לכם וללא התחייבות. הבחירה בטופס אינה מפעילה חיוב חוזר או הוראת קבע.</div>
           </fieldset></div>
           <div class="form-group"><label class="field-label" for="dedication">הקדשה נוספת (לא חובה)</label>
             <select class="input" name="dedication_type" id="dedication">
               <option value="ללא הקדשה נוספת">ללא הקדשה נוספת</option><option value="לעילוי נשמה">לעילוי נשמה</option><option value="לרפואה שלמה">לרפואה שלמה</option><option value="לזיווג הגון">לזיווג הגון</option><option value="להצלחה ולישועה">להצלחה ולישועה</option>
             </select>
-            <div id="dedicationNameWrap" class="hidden" style="margin-top:12px"><label class="field-label" for="dedicationName">שם להקדשה</label><input class="input" id="dedicationName" name="dedication_name" type="text" maxlength="140" placeholder="שם ושם האם / האב לפי הצורך" /></div>
+            <div id="dedicationNameWrap" class="hidden" style="margin-top:12px">
+              <label class="field-label" for="dedicationName">שם להקדשה</label>
+              <input class="input" id="dedicationName" name="dedication_name" type="text" maxlength="140" placeholder="שם ושם האם / האב לפי הצורך" />
+              <label class="field-label" for="dedicationDate" style="margin-top:12px">מוצאי שבת מבוקש להקדשה (לא חובה)</label>
+              <input class="input" id="dedicationDate" name="dedication_requested_date" type="date" disabled />
+              <div class="hint">המועד המבוקש כפוף לתיאום ולאישור מראש.</div>
+            </div>
           </div>
           <div class="twocol form-group">
             <div><label class="field-label" for="fullName">שם מלא *</label><input class="input" id="fullName" name="full_name" type="text" autocomplete="name" maxlength="120" required /></div>
@@ -100,9 +117,10 @@
           <div class="form-group"><label class="field-label" for="email">כתובת דוא״ל (לא חובה)</label><input class="input" id="email" name="email" type="email" autocomplete="email" maxlength="160" placeholder="לקבלת קישור התשלום גם במייל" /></div>
           <div class="form-group"><label class="field-label" for="notes">הערה נוספת (לא חובה)</label><textarea class="input" name="notes" id="notes" maxlength="400" placeholder="בקשה מיוחדת או פרטים שחשוב שנדע"></textarea></div>
           <input type="hidden" name="selected_amount_ils" id="finalAmount" value="50" />
-          <div class="disclaimer">הטופס הוא בקשת שותפות בלבד. אין חיוב כספי בשלב זה. לאחר קבלת הבקשה ניצור עמכם קשר או נשלח קישור לתשלום, לפי האפשרות שבחרתם. העברה בביט או בבנק נעשית על ידיכם בנפרד.</div>
+          <div class="disclaimer">הטופס הוא בקשת שותפות בלבד ואינו מבצע חיוב. בבחירת אשראי יישלח קישור לתשלום; בבחירת ביט או העברה בנקאית יש לבצע את ההעברה בנפרד. קבלת הכסף נבדקת לאחר מכן.</div>
+          <label class="privacy-consent"><input type="checkbox" name="privacy_consent" value="אישור שימוש בפרטים לצורך בקשת השותפות" required /> <span>אני מאשר/ת שימוש בפרטים שמסרתי לצורך טיפול בבקשת השותפות ויצירת קשר, לרבות העברתם באמצעות שירות FormSubmit לשליחת המייל.</span></label>
           <button class="button" type="submit" id="submitBtn" style="width:100%">שליחת בקשת שותפות</button>
-          <p class="smallprint">הפרטים יועברו באמצעות שירות FormSubmit למארגן הכולל לצורך יצירת קשר ושליחת דרישת תשלום. אין למסור פרטי אשראי בטופס.</p>
+          <p class="smallprint">פרטיכם ישמשו לטיפול בבקשה בלבד ויועברו דרך שירות FormSubmit, המספק את מערכת משלוח הטפסים. אין להזין כאן פרטי אשראי או מידע רפואי אישי. ניתן לפנות למארגן הכולל בכל שאלה בנוגע לפרטים שנמסרו.</p>
         </form>
       </div>
     </section>
@@ -115,6 +133,9 @@
     const dedSelect=document.getElementById('dedication');
     const dedWrap=document.getElementById('dedicationNameWrap');
     const dedName=document.getElementById('dedicationName');
+    const dedDate=document.getElementById('dedicationDate');
+    const transferConfirmationWrap=document.getElementById('transferConfirmationWrap');
+    const transferStatusRadios=[...form.querySelectorAll('input[name="transfer_status"]')];
     const paymentMethod=document.getElementById('paymentMethod');
     const paymentInstructions=document.getElementById('paymentInstructions');
     const frequencyNote=document.getElementById('frequencyNote');
@@ -143,14 +164,26 @@
       if(method==='העברה בנקאית') info='פרטי העברה: בנק לאומי (10), סניף 940, חשבון 7237549, על שם אליהו נקש. נא לציין בהערה: עבור כולל מוצ"ש.';
       paymentInstructions.textContent=info;
       paymentInstructions.classList.toggle('hidden',!info);
-      const dedicated=dedSelect.value!=='ללא הקדשה נוספת';dedWrap.classList.toggle('hidden',!dedicated);dedName.disabled=!dedicated;
+      const bankOrBit=!monthly && (method==='ביט'||method==='העברה בנקאית');
+      transferConfirmationWrap.classList.toggle('hidden',!bankOrBit);
+      for(const radio of transferStatusRadios){radio.disabled=!bankOrBit;radio.required=bankOrBit;}
+      if(!bankOrBit)for(const radio of transferStatusRadios)radio.checked=false;
+      const dedicated=dedSelect.value!=='ללא הקדשה נוספת';dedWrap.classList.toggle('hidden',!dedicated);dedName.disabled=!dedicated;dedDate.disabled=!dedicated;
     }
     form.addEventListener('change',sync);otherInput.addEventListener('input',sync);sync();
     form.addEventListener('submit',(event)=>{
       sync();
       const amount=Number(document.getElementById('finalAmount').value);
       if(!Number.isInteger(amount)||amount<1){event.preventDefault();alert('נא לבחור סכום שותפות תקין');otherInput.focus();return;}
-      // FormSubmit requires an email confirmation before accepting submissions.
+      const method=paymentMethod.value;
+      const methodCode=method==='אשראי'?'credit':method==='ביט'?'bit':method==='העברה בנקאית'?'bank':method==='אחר – צרו איתי קשר'?'contact':'';
+      const transferValue=form.querySelector('input[name="transfer_status"]:checked')?.value||'';
+      const transferCode=transferValue==='כבר ביצעתי העברה'?'sent':transferValue==='אבצע את ההעברה בהמשך'?'later':'';
+      const next=new URL('https://clinicmanager-nakash.github.io/kollel-anet/thanks.html');
+      if(methodCode)next.searchParams.set('method',methodCode);
+      if(transferCode)next.searchParams.set('transfer',transferCode);
+      document.getElementById('thankYouUrl').value=next.toString();
+      // Redirect occurs only after FormSubmit accepts the submission.
     });
   </script>
 </body>
