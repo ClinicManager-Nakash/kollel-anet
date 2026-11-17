@@ -76,25 +76,16 @@
               <label class="choice choice-small"><input type="radio" name="frequency" value="חודשית בתיאום אישי" checked /><span>חודשית</span></label>
               <label class="choice choice-small"><input type="radio" name="frequency" value="חד-פעמית" /><span>חד־פעמית</span></label>
             </div>
-            <div id="monthlyPaymentWrap" style="margin-top:14px">
-              <label class="field-label" for="monthlyPaymentMethod">אמצעי תשלום מועדף להשתתפות חודשית</label>
-              <select class="input" id="monthlyPaymentMethod" name="monthly_payment_method" required>
+            <div id="paymentMethodWrap" style="margin-top:14px">
+              <label class="field-label" for="paymentMethod">אופן הסדרת התשלום</label>
+              <select class="input" id="paymentMethod" name="payment_method" required>
                 <option value="" selected disabled>בחרו אמצעי תשלום</option>
                 <option value="אשראי">אשראי</option>
-                <option value="ביט">ביט</option>
-                <option value="העברה בנקאית">העברה בנקאית</option>
-                <option value="אחר">אחר</option>
+                <option value="אחר – צרו איתי קשר">אחר (צרו איתי קשר)</option>
               </select>
-              <div id="monthlyNextStepWrap" class="hidden" style="margin-top:16px">
-                <div class="field-label" id="monthlyNextStepLabel">כיצד תרצו להמשיך?</div>
-                <div class="twocol" role="group" aria-labelledby="monthlyNextStepLabel">
-                  <label class="choice choice-small"><input type="radio" name="monthly_next_step" value="מאשר/ת להתקדם לביצוע החיוב" disabled /><span>אישור לביצוע החיוב</span></label>
-                  <label class="choice choice-small"><input type="radio" name="monthly_next_step" value="צרו איתי קשר" disabled /><span>צרו איתי קשר</span></label>
-                </div>
-                <div class="hint">אישור לביצוע החיוב הוא בקשה להתקדם בהסדרת התשלום. לא מתבצע חיוב או מסירת פרטי אשראי בטופס זה.</div>
-              </div>
+              <div class="hint hidden" id="paymentInstructions" aria-live="polite" style="margin-top:12px"></div>
             </div>
-            <div class="hint">בחירת השתתפות חודשית – בתיאום מולכם, באופן שנוח לכם וללא התחייבות. לא מתבצע חיוב אוטומטי.</div>
+            <div class="hint" id="frequencyNote">בחירת השתתפות חודשית – בתיאום מולכם, באופן שנוח לכם וללא התחייבות. לא מתבצע חיוב אוטומטי.</div>
           </fieldset></div>
           <div class="form-group"><label class="field-label" for="dedication">הקדשה נוספת (לא חובה)</label>
             <select class="input" name="dedication_type" id="dedication">
@@ -109,7 +100,7 @@
           <div class="form-group"><label class="field-label" for="email">כתובת דוא״ל (לא חובה)</label><input class="input" id="email" name="email" type="email" autocomplete="email" maxlength="160" placeholder="לקבלת קישור התשלום גם במייל" /></div>
           <div class="form-group"><label class="field-label" for="notes">הערה נוספת (לא חובה)</label><textarea class="input" name="notes" id="notes" maxlength="400" placeholder="בקשה מיוחדת או פרטים שחשוב שנדע"></textarea></div>
           <input type="hidden" name="selected_amount_ils" id="finalAmount" value="50" />
-          <div class="disclaimer">הטופס הוא בקשת שותפות בלבד. אין חיוב כספי בשלב זה. לאחר קבלת הבקשה תישלח אליכם דרישת תשלום אישית.</div>
+          <div class="disclaimer">הטופס הוא בקשת שותפות בלבד. אין חיוב כספי בשלב זה. לאחר קבלת הבקשה ניצור עמכם קשר או נשלח קישור לתשלום, לפי האפשרות שבחרתם. העברה בביט או בבנק נעשית על ידיכם בנפרד.</div>
           <button class="button" type="submit" id="submitBtn" style="width:100%">שליחת בקשת שותפות</button>
           <p class="smallprint">הפרטים יועברו באמצעות שירות FormSubmit למארגן הכולל לצורך יצירת קשר ושליחת דרישת תשלום. אין למסור פרטי אשראי בטופס.</p>
         </form>
@@ -124,22 +115,34 @@
     const dedSelect=document.getElementById('dedication');
     const dedWrap=document.getElementById('dedicationNameWrap');
     const dedName=document.getElementById('dedicationName');
-    const monthlyPaymentWrap=document.getElementById('monthlyPaymentWrap');
-    const monthlyPaymentMethod=document.getElementById('monthlyPaymentMethod');
-    const monthlyNextStepWrap=document.getElementById('monthlyNextStepWrap');
-    const monthlyNextSteps=[...form.querySelectorAll('input[name="monthly_next_step"]')];
+    const paymentMethod=document.getElementById('paymentMethod');
+    const paymentInstructions=document.getElementById('paymentInstructions');
+    const frequencyNote=document.getElementById('frequencyNote');
+    let lastFrequency='';
     function sync(){
       const choice=form.querySelector('input[name="amount_choice"]:checked').value;
-      const other=choice==='other';otherWrap.classList.toggle('hidden',!other);otherInput.required=other;
+      const other=choice==='other';
+      otherWrap.classList.toggle('hidden',!other);
+      otherInput.required=other;
       otherInput.disabled=!other;
       document.getElementById('finalAmount').value=other?otherInput.value:choice;
       const monthly=form.querySelector('input[name="frequency"]:checked').value==='חודשית בתיאום אישי';
-      monthlyPaymentWrap.classList.toggle('hidden',!monthly);
-      monthlyPaymentMethod.disabled=!monthly;
-      monthlyPaymentMethod.required=monthly;
-      const showNextStep=monthly && !!monthlyPaymentMethod.value;
-      monthlyNextStepWrap.classList.toggle('hidden',!showNextStep);
-      for(const radio of monthlyNextSteps){radio.disabled=!showNextStep;radio.required=showNextStep;}
+      const currentFrequency=monthly?'monthly':'one-time';
+      if(lastFrequency!==currentFrequency){
+        paymentMethod.innerHTML=monthly
+          ? '<option value="" selected disabled>בחרו אמצעי תשלום</option><option value="אשראי">אשראי</option><option value="אחר – צרו איתי קשר">אחר (צרו איתי קשר)</option>'
+          : '<option value="" selected disabled>בחרו אמצעי תשלום</option><option value="אשראי">אשראי</option><option value="ביט">ביט</option><option value="העברה בנקאית">העברה בנקאית</option>';
+        lastFrequency=currentFrequency;
+      }
+      frequencyNote.classList.toggle('hidden',!monthly);
+      const method=paymentMethod.value;
+      let info='';
+      if(method==='אשראי') info='לאחר קבלת הבקשה נשלח אליכם קישור מאובטח להזנת פרטי האשראי ולהסדרת ההשתתפות.';
+      if(method==='אחר – צרו איתי קשר') info='לאחר קבלת הבקשה ניצור עמכם קשר לתיאום אופן התשלום.';
+      if(method==='ביט') info='נא להעביר את סכום ההשתתפות באמצעות ביט למספר 058-5657365. בפרטי ההעברה יש לציין: עבור כולל מוצ"ש.';
+      if(method==='העברה בנקאית') info='פרטי העברה: בנק לאומי (10), סניף 940, חשבון 7237549, על שם אליהו נקש. נא לציין בהערה: עבור כולל מוצ"ש.';
+      paymentInstructions.textContent=info;
+      paymentInstructions.classList.toggle('hidden',!info);
       const dedicated=dedSelect.value!=='ללא הקדשה נוספת';dedWrap.classList.toggle('hidden',!dedicated);dedName.disabled=!dedicated;
     }
     form.addEventListener('change',sync);otherInput.addEventListener('input',sync);sync();
