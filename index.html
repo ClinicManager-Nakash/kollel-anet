@@ -63,17 +63,6 @@
           <input type="hidden" name="_next" id="thankYouUrl" value="https://clinicmanager-nakash.github.io/kollel-anet/thanks.html" />
           <div class="hidden" aria-hidden="true"><label>השאירו ריק: <input type="text" name="_honey" tabindex="-1" autocomplete="off" /></label></div>
           <div class="form-group"><fieldset>
-            <legend>בחרו סכום <span class="amount-legend-note">400 ₪ – עלות אחזקת אברך לחודש</span></legend>
-            <div class="amounts">
-              <label class="choice"><input type="radio" name="amount_choice" value="50" checked /><span>50 ₪</span></label>
-              <label class="choice"><input type="radio" name="amount_choice" value="100" /><span>100 ₪</span></label>
-              <label class="choice"><input type="radio" name="amount_choice" value="200" /><span>200 ₪</span></label>
-              <label class="choice"><input type="radio" name="amount_choice" value="400" /><span>400 ₪</span></label>
-            </div>
-            <label class="choice choice-small" style="margin-top:10px;max-width:180px"><input type="radio" name="amount_choice" value="other" /><span>סכום אחר</span></label>
-            <div id="otherAmountWrap" class="hidden" style="margin-top:12px"><label class="field-label" for="otherAmount">סכום בשקלים</label><input class="input" id="otherAmount" type="number" name="other_amount" min="1" step="1" placeholder="לדוגמה: 75" /></div>
-          </fieldset></div>
-          <div class="form-group"><fieldset>
             <legend>אופן השתתפות</legend>
             <div class="twocol">
               <label class="choice choice-small"><input type="radio" name="frequency" value="חודשית בתיאום אישי" checked /><span>חודשית</span></label>
@@ -98,9 +87,26 @@
             </div>
             <div class="monthly-note" id="frequencyNote">השתתפות חודשית תוסדר בתיאום אישי, באופן שנוח לכם וללא התחייבות. הבחירה בטופס אינה מפעילה חיוב חוזר או הוראת קבע.</div>
           </fieldset></div>
-          <div class="form-group"><label class="field-label" for="dedication">הקדשה נוספת (לא חובה)</label>
+          <div class="form-group"><fieldset>
+            <legend>בחרו סכום <span class="amount-legend-note">400 ₪ – עלות אחזקת אברך לחודש</span></legend>
+            <div class="amounts">
+              <label class="choice"><input type="radio" name="amount_choice" value="50" checked /><span>50 ₪</span></label>
+              <label class="choice"><input type="radio" name="amount_choice" value="100" /><span>100 ₪</span></label>
+              <label class="choice"><input type="radio" name="amount_choice" value="200" /><span>200 ₪</span></label>
+              <label class="choice"><input type="radio" name="amount_choice" value="400" /><span>400 ₪</span></label>
+            </div>
+            <label class="choice choice-small" style="margin-top:10px;max-width:180px"><input type="radio" name="amount_choice" value="other" /><span>סכום אחר</span></label>
+            <div id="otherAmountWrap" class="hidden" style="margin-top:12px"><label class="field-label" for="otherAmount">סכום בשקלים</label><input class="input" id="otherAmount" type="number" name="other_amount" min="1" step="1" placeholder="לדוגמה: 75" /></div>
+          </fieldset></div>
+          <div class="form-group"><label class="field-label" for="dedication">הקדשת הלימוד (לא חובה)</label>
             <select class="input" name="dedication_type" id="dedication">
-              <option value="ללא הקדשה נוספת">ללא הקדשה נוספת</option><option value="לעילוי נשמה">לעילוי נשמה</option><option value="לרפואה שלמה">לרפואה שלמה</option><option value="לזיווג הגון">לזיווג הגון</option><option value="להצלחה ולישועה">להצלחה ולישועה</option>
+              <option value="ללא הקדשה נוספת">ללא הקדשה</option>
+              <option value="לעילוי נשמה">לעילוי נשמה</option>
+              <option value="לרפואה שלמה">לרפואה שלמה</option>
+              <option value="לזיווג הגון">לזיווג הגון</option>
+              <option value="לזרע קודש בר קיימא">לזרע קודש בר קיימא</option>
+              <option value="להצלחה">להצלחה</option>
+              <option value="לברכה">לברכה</option>
             </select>
             <div id="dedicationNameWrap" class="hidden" style="margin-top:12px">
               <label class="field-label" for="dedicationName">שם להקדשה</label>
