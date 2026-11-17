@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#182c35">
+<title>תודה על השותפות | כולל מוצאי שבת</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,"Noto Sans Hebrew",sans-serif;line-height:1.7;background:#faf7f0;color:#26343a}.hero{background:linear-gradient(140deg,#13242d,#25404a);color:white;text-align:center;padding:42px 18px}.hero h1{margin:0;color:#eccb90;font-size:clamp(28px,5vw,43px)}.hero p{margin:7px 0 0}.card{background:#fff;border:1px solid #e8ddcd;border-radius:18px;padding:clamp(20px,5vw,40px);max-width:650px;margin:34px auto;box-shadow:0 12px 40px #26343a13;text-align:center}h2{font-size:25px;color:#183743}.instruction{background:#eef5f6;border:2px solid #aac4cb;border-right:5px solid #b18a51;border-radius:12px;padding:15px;margin:20px 0;font-weight:700;font-size:18px;white-space:pre-line;overflow-wrap:anywhere}.muted{color:#52646b;font-size:15px}.button{display:inline-block;margin-top:12px;background:#b58a51;color:#171d20;padding:12px 22px;text-decoration:none;border-radius:10px;font-weight:700}footer{text-align:center;font-size:13px;padding:10px 20px 30px;color:#727978}.hidden{display:none}
+</style></head>
+<body><header class="hero"><h1>תודה על השותפות!</h1><p>ממשיכים את לימוד התורה לעילוי נשמת אנט בת כרמלה ז״ל</p></header>
+<main class="card"><h2>בקשתכם נשלחה</h2><p>תודה על נכונותכם להיות שותפים בהמשך לימוד התורה של ארבעת האברכים מדי מוצאי שבת.</p>
+<div id="instructions" class="instruction" aria-live="polite">פרטי הבקשה נשלחו למארגן הכולל.</div>
+<p id="pending" class="muted">לתשומת לבכם: שליחת הטופס אינה אישור על קבלת תשלום. התשלום יתואם או ייבדק בהתאם לאופן שבחרתם.</p>
+<a href="./" class="button">חזרה לדף הכולל</a>
+</main><footer>כולל מוצאי שבת • לעילוי נשמת אנט בת כרמלה ז״ל</footer>
+<script>
+const params=new URLSearchParams(location.search);
+const method=params.get('method'),transfer=params.get('transfer');
+const msg=document.getElementById('instructions');
+if(method==='credit'){msg.textContent='לאחר קבלת הבקשה נשלח אליכם קישור מאובטח להזנת פרטי האשראי ולהסדרת ההשתתפות.';}
+else if(method==='contact'){msg.textContent='קיבלנו את בקשתכם. ניצור עמכם קשר לתיאום אופן התשלום.';}
+else if(method==='bit'){msg.textContent='תשלום בביט למספר 058-5657365.\nבפרטי ההעברה יש לציין: עבור כולל מוצ"ש.';}
+else if(method==='bank'){msg.textContent='פרטי העברה: בנק לאומי (10), סניף 940, חשבון 7237549, על שם אליהו נקש.\nבהערה יש לציין: עבור כולל מוצ"ש.';}
+if(transfer==='sent'){document.getElementById('pending').textContent='ציינתם שביצעתם את ההעברה. תודה! נבדוק את קבלתה בפועל. הטופס עצמו אינו מהווה אישור תשלום.';}
+else if(transfer==='later'){document.getElementById('pending').textContent='ציינתם שתבצעו את ההעברה לאחר שליחת הטופס. השותפות תושלם לאחר ביצוע התשלום ואימות קבלתו.';}
+</script></body></html>
