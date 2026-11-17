@@ -73,8 +73,18 @@
           <div class="form-group"><fieldset>
             <legend>אופן השתתפות</legend>
             <div class="twocol">
-              <label class="choice choice-small"><input type="radio" name="frequency" value="חודשית בתיאום אישי" /><span>חודשית</span></label>
-              <label class="choice choice-small"><input type="radio" name="frequency" value="חד-פעמית" checked /><span>חד־פעמית</span></label>
+              <label class="choice choice-small"><input type="radio" name="frequency" value="חודשית בתיאום אישי" checked /><span>חודשית</span></label>
+              <label class="choice choice-small"><input type="radio" name="frequency" value="חד-פעמית" /><span>חד־פעמית</span></label>
+            </div>
+            <div id="monthlyPaymentWrap" style="margin-top:14px">
+              <label class="field-label" for="monthlyPaymentMethod">אמצעי תשלום מועדף להשתתפות חודשית</label>
+              <select class="input" id="monthlyPaymentMethod" name="monthly_payment_method" required>
+                <option value="" selected disabled>בחרו אמצעי תשלום</option>
+                <option value="אשראי">אשראי</option>
+                <option value="ביט">ביט</option>
+                <option value="העברה בנקאית">העברה בנקאית</option>
+                <option value="אחר">אחר</option>
+              </select>
             </div>
             <div class="hint">בחירת השתתפות חודשית – בתיאום מולכם, באופן שנוח לכם וללא התחייבות. לא מתבצע חיוב אוטומטי.</div>
           </fieldset></div>
@@ -106,11 +116,17 @@
     const dedSelect=document.getElementById('dedication');
     const dedWrap=document.getElementById('dedicationNameWrap');
     const dedName=document.getElementById('dedicationName');
+    const monthlyPaymentWrap=document.getElementById('monthlyPaymentWrap');
+    const monthlyPaymentMethod=document.getElementById('monthlyPaymentMethod');
     function sync(){
       const choice=form.querySelector('input[name="amount_choice"]:checked').value;
       const other=choice==='other';otherWrap.classList.toggle('hidden',!other);otherInput.required=other;
       otherInput.disabled=!other;
       document.getElementById('finalAmount').value=other?otherInput.value:choice;
+      const monthly=form.querySelector('input[name="frequency"]:checked').value==='חודשית בתיאום אישי';
+      monthlyPaymentWrap.classList.toggle('hidden',!monthly);
+      monthlyPaymentMethod.disabled=!monthly;
+      monthlyPaymentMethod.required=monthly;
       const dedicated=dedSelect.value!=='ללא הקדשה נוספת';dedWrap.classList.toggle('hidden',!dedicated);dedName.disabled=!dedicated;
     }
     form.addEventListener('change',sync);otherInput.addEventListener('input',sync);sync();
