@@ -54,11 +54,11 @@
       <h2 id="join-heading">ביחד נמשיך את הלימוד</h2>
       <p>ממלאים פרטים, ולאחר קבלת הבקשה נשלח אליכם קישור אישי לתשלום.</p>
       <div class="form-card">
-        <!-- Form submissions are collected by Netlify Forms once the site is deployed on Netlify. -->
-        <form name="kollel-partnership" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="website" id="partnerForm">
-          <input type="hidden" name="form-name" value="kollel-partnership" />
-          <input type="hidden" name="subject" value="בקשת שותפות חדשה – כולל מוצאי שבת" />
-          <p class="hidden"><label>השאירו ריק: <input name="website" tabindex="-1" autocomplete="off" /></label></p>
+        <!-- Requests are sent to FormSubmit. Recipient must activate via email on first submission. -->
+        <form name="kollel-partnership" method="POST" action="https://formsubmit.co/eliyahunakash@gmail.com" id="partnerForm">
+          <input type="hidden" name="_template" value="table" />
+          <input type="hidden" name="_subject" value="בקשת שותפות חדשה – כולל אנט בת כרמלה" />
+          <div class="hidden" aria-hidden="true"><label>השאירו ריק: <input type="text" name="_honey" tabindex="-1" autocomplete="off" /></label></div>
           <div class="form-group"><fieldset>
             <legend>בחרו סכום <span class="amount-legend-note">400 ₪ – עלות אחזקת אברך לחודש</span></legend>
             <div class="amounts">
@@ -93,7 +93,7 @@
           <input type="hidden" name="selected_amount_ils" id="finalAmount" value="50" />
           <div class="disclaimer">הטופס הוא בקשת שותפות בלבד. אין חיוב כספי בשלב זה. לאחר קבלת הבקשה תישלח אליכם דרישת תשלום אישית.</div>
           <button class="button" type="submit" id="submitBtn" style="width:100%">שליחת בקשת שותפות</button>
-          <p class="smallprint">הפרטים ישמשו ליצירת קשר בנוגע לבקשה ולשליחת דרישת תשלום. אין למסור פרטי אשראי בטופס.</p>
+          <p class="smallprint">הפרטים יועברו באמצעות שירות FormSubmit למארגן הכולל לצורך יצירת קשר ושליחת דרישת תשלום. אין למסור פרטי אשראי בטופס.</p>
         </form>
       </div>
     </section>
@@ -118,7 +118,7 @@
       sync();
       const amount=Number(document.getElementById('finalAmount').value);
       if(!Number.isInteger(amount)||amount<1){event.preventDefault();alert('נא לבחור סכום שותפות תקין');otherInput.focus();return;}
-      // The site must be hosted on Netlify with Forms enabled for submissions to be delivered.
+      // FormSubmit requires an email confirmation before accepting submissions.
     });
   </script>
 </body>
