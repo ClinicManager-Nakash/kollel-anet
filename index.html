@@ -85,6 +85,14 @@
                 <option value="העברה בנקאית">העברה בנקאית</option>
                 <option value="אחר">אחר</option>
               </select>
+              <div id="monthlyNextStepWrap" class="hidden" style="margin-top:16px">
+                <div class="field-label" id="monthlyNextStepLabel">כיצד תרצו להמשיך?</div>
+                <div class="twocol" role="group" aria-labelledby="monthlyNextStepLabel">
+                  <label class="choice choice-small"><input type="radio" name="monthly_next_step" value="מאשר/ת להתקדם לביצוע החיוב" disabled /><span>אישור לביצוע החיוב</span></label>
+                  <label class="choice choice-small"><input type="radio" name="monthly_next_step" value="צרו איתי קשר" disabled /><span>צרו איתי קשר</span></label>
+                </div>
+                <div class="hint">אישור לביצוע החיוב הוא בקשה להתקדם בהסדרת התשלום. לא מתבצע חיוב או מסירת פרטי אשראי בטופס זה.</div>
+              </div>
             </div>
             <div class="hint">בחירת השתתפות חודשית – בתיאום מולכם, באופן שנוח לכם וללא התחייבות. לא מתבצע חיוב אוטומטי.</div>
           </fieldset></div>
@@ -118,6 +126,8 @@
     const dedName=document.getElementById('dedicationName');
     const monthlyPaymentWrap=document.getElementById('monthlyPaymentWrap');
     const monthlyPaymentMethod=document.getElementById('monthlyPaymentMethod');
+    const monthlyNextStepWrap=document.getElementById('monthlyNextStepWrap');
+    const monthlyNextSteps=[...form.querySelectorAll('input[name="monthly_next_step"]')];
     function sync(){
       const choice=form.querySelector('input[name="amount_choice"]:checked').value;
       const other=choice==='other';otherWrap.classList.toggle('hidden',!other);otherInput.required=other;
@@ -127,6 +137,9 @@
       monthlyPaymentWrap.classList.toggle('hidden',!monthly);
       monthlyPaymentMethod.disabled=!monthly;
       monthlyPaymentMethod.required=monthly;
+      const showNextStep=monthly && !!monthlyPaymentMethod.value;
+      monthlyNextStepWrap.classList.toggle('hidden',!showNextStep);
+      for(const radio of monthlyNextSteps){radio.disabled=!showNextStep;radio.required=showNextStep;}
       const dedicated=dedSelect.value!=='ללא הקדשה נוספת';dedWrap.classList.toggle('hidden',!dedicated);dedName.disabled=!dedicated;
     }
     form.addEventListener('change',sync);otherInput.addEventListener('input',sync);sync();
