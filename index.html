@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#182c35" />
+  <meta name="description" content="שותפים בהמשך לימוד התורה בכולל מוצאי שבת, לעילוי נשמת אנט בת כרמלה ז״ל." />
+  <title>ממשיכים את האור שלה | כולל מוצאי שבת</title>
+  <style>
+    :root{--navy:#172b34;--navy2:#27404b;--gold:#b18a51;--cream:#faf7f0;--line:#e8ddcd;--ink:#26343a;--muted:#6a7477;--white:#fff;--ring:#9f7644}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:Arial,"Noto Sans Hebrew",sans-serif;line-height:1.65}a{color:inherit}
+    .hero{background:radial-gradient(circle at 13% 0%,#375463 0%,transparent 45%),linear-gradient(140deg,#13242d,#25404a);color:white;position:relative;overflow:hidden}
+    .hero:after{content:"";position:absolute;inset:0;opacity:.17;background-image:radial-gradient(#e9c693 1px,transparent 1px);background-size:25px 25px;pointer-events:none}
+    .wrap{max-width:960px;margin:auto;padding:0 22px;position:relative;z-index:1}
+    .hero .wrap{padding-top:66px;padding-bottom:73px;text-align:center}.eyebrow{display:inline-block;border:1px solid #a8875780;border-radius:30px;padding:5px 17px;letter-spacing:.2px;color:#e6d4b9;font-size:14px}
+    h1{font-size:clamp(38px,6vw,66px);letter-spacing:-1.1px;line-height:1.13;margin:23px auto 16px;max-width:800px}h1 em{color:#eccb90;font-style:normal}
+    .hero p{max-width:660px;margin:0 auto 26px;font-size:18px;color:#f0eee9}.button{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:12px;background:#b58a51;color:#171d20;font:700 17px Arial,sans-serif;text-decoration:none;padding:15px 27px;cursor:pointer;transition:transform .15s,background .15s}.button:hover{background:#d3a665;transform:translateY(-1px)}.button:focus-visible,input:focus-visible,textarea:focus-visible{outline:3px solid #cfad77;outline-offset:2px}.button:disabled{opacity:.55;cursor:not-allowed;transform:none}
+    .stats{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin-top:32px}.stat{min-width:145px;padding:11px 18px;border:1px solid #ffffff35;background:#ffffff12;border-radius:12px;text-align:center}.stat strong{font-size:23px;display:block;color:#f5d8a5}.stat span{font-size:13px;color:#f1eae0}
+    main{padding-bottom:72px}.story{max-width:740px;text-align:center;margin:55px auto 52px}.overline{color:#a47c44;font-size:13px;font-weight:bold;letter-spacing:.8px}.story h2,.join h2{font-size:clamp(26px,4vw,37px);line-height:1.2;margin:9px 0 19px;color:#1d3039}.story p{font-size:18px;margin:0 auto 13px}.story strong{color:#253b42}
+    .band{background:#f0e9dd;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;text-align:center;font-size:19px}.band strong{color:#775329}
+    .join{max-width:710px;margin:55px auto 0}.form-card{background:white;border:1px solid #e9e1d6;box-shadow:0 18px 55px #26343a0d;border-radius:22px;padding:clamp(20px,5vw,39px)}.join>p{text-align:center;color:#56676d;margin:-8px 0 27px}.join h2{text-align:center}fieldset{border:0;margin:0;padding:0;min-width:0}legend,.field-label{display:block;font-size:16px;font-weight:700;color:#26343a;margin:0 0 11px}.form-group{margin-bottom:26px}.amounts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}.choice{cursor:pointer;position:relative;display:block}.choice input{position:absolute;opacity:0;width:1px;height:1px}.choice span{display:flex;align-items:center;justify-content:center;border:1.5px solid #e5d8c5;border-radius:12px;min-height:57px;font-weight:700;font-size:19px;background:#fffcf7;transition:.15s}.choice input:checked+span{border-color:#ac8047;background:#f8eddb;color:#744d1e;box-shadow:0 0 0 2px #ac804722}.choice input:focus-visible+span{outline:3px solid var(--ring);outline-offset:3px}.choice-small span{font-size:14px;min-height:52px;padding:8px;text-align:center}.twocol{display:grid;grid-template-columns:1fr 1fr;gap:14px}.input{display:block;width:100%;border:1.5px solid #dedbd4;border-radius:10px;background:#fff;font:16px Arial,sans-serif;min-height:50px;padding:11px 13px;color:#26343a}.input::placeholder{color:#91999b}textarea.input{min-height:90px;resize:vertical}.hint{color:#6d7678;font-size:13px;margin-top:8px}.disclaimer{font-size:14px;color:#657477;background:#f5f7f6;padding:14px 16px;border-radius:10px;margin:20px 0}.smallprint{font-size:12px;color:#768083;text-align:center;margin:14px 0 0}.hidden{display:none!important}.error{display:none;color:#9b312d;font-size:13px;margin-top:6px}.footer{text-align:center;font-size:13px;color:#727978;padding-top:35px}.footer strong{color:#35494d}
+    .amount-legend-note{display:inline-block;font-size:13px;font-weight:400;color:#6d7678;margin-inline-start:12px}
+    @media(max-width:600px){.hero .wrap{padding:47px 18px 55px}.hero p{font-size:16px}.stats{gap:8px}.stat{min-width:0;flex:1;padding:11px 8px}.stat strong{font-size:20px}.story{margin:38px auto}.story p{font-size:16px}.amounts{grid-template-columns:repeat(2,1fr)}.twocol{grid-template-columns:1fr}.join{margin-top:38px}.band{font-size:17px}.form-card{padding:20px}}
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <h1>ממשיכים את <em>האור שלה</em></h1>
+      <p>שנה שלמה של לימוד תורה לעילוי נשמת אנט בת כרמלה ז״ל הושלמה.<br>כעת אנחנו זקוקים לכם כדי שהלימוד יוכל להימשך.</p>
+      <a class="button" href="#join">אני רוצה להיות שותף</a>
+      <div class="stats" aria-label="נתוני הכולל">
+        <div class="stat"><strong>4</strong><span>אברכים לומדים</span></div>
+        <div class="stat"><strong>שעתיים</strong><span>לימוד במוצ״ש</span></div>
+        <div class="stat"><strong>₪1,600</strong><span>עלות חודשית</span></div>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="story wrap" aria-labelledby="story-heading">
+      <div class="overline">סיפור אישי שהפך למפעל של תורה</div>
+      <h2 id="story-heading">היא הצילה את חיי<br>אני פועל להנציח את נשמתה</h2>
+      <p>כשהייתי תינוק, התעלפתי באמבטיה. בת דודתי, אנט, הצילה את חיי.</p>
+      <p>לפני שנה היא נפטרה.</p>
+      <p>לקחתי על עצמי לייסד מערך לימוד תורה לעילוי נשמתה למשך השנה הראשונה לפטירתה.</p>
+      <p>כך במשך השנה האחרונה, מדי מוצ״ש, בזמן שרוב האנשים עסוקים בענייניהם, ישבו 4 אברכים ולמדו שעתיים לעילוי נשמתה.</p>
+      <p>בחסדי שמיים זכינו לעמוד בהתחייבות.</p>
+      <p><strong>אבל כעת, בתום השנה, בלי שותפות הציבור לא אוכל להמשיך להחזיק את הכולל.</strong></p>
+      <p>אני מזמין אתכם להיות שותפים בהמשך לימוד התורה, בכל סכום שתבחרו.</p>
+    </section>
+    <div class="band"><div class="wrap">ההתחייבות לשנה הסתיימה.<br><strong>האפשרות להמשיך – בידיים של כולנו.</strong></div></div>
+    <section class="join wrap" id="join" aria-labelledby="join-heading">
+      <div class="overline" style="text-align:center">בקשת שותפות</div>
+      <h2 id="join-heading">ביחד נמשיך את הלימוד</h2>
+      <p>ממלאים פרטים, ולאחר קבלת הבקשה נשלח אליכם קישור אישי לתשלום.</p>
+      <div class="form-card">
+        <!-- Form submissions are collected by Netlify Forms once the site is deployed on Netlify. -->
+        <form name="kollel-partnership" method="POST" action="/thanks.html" data-netlify="true" netlify-honeypot="website" id="partnerForm">
+          <input type="hidden" name="form-name" value="kollel-partnership" />
+          <input type="hidden" name="subject" value="בקשת שותפות חדשה – כולל מוצאי שבת" />
+          <p class="hidden"><label>השאירו ריק: <input name="website" tabindex="-1" autocomplete="off" /></label></p>
+          <div class="form-group"><fieldset>
+            <legend>בחרו סכום <span class="amount-legend-note">400 ₪ – עלות אחזקת אברך לחודש</span></legend>
+            <div class="amounts">
+              <label class="choice"><input type="radio" name="amount_choice" value="50" checked /><span>50 ₪</span></label>
+              <label class="choice"><input type="radio" name="amount_choice" value="100" /><span>100 ₪</span></label>
+              <label class="choice"><input type="radio" name="amount_choice" value="200" /><span>200 ₪</span></label>
+              <label class="choice"><input type="radio" name="amount_choice" value="400" /><span>400 ₪</span></label>
+            </div>
+            <label class="choice choice-small" style="margin-top:10px;max-width:180px"><input type="radio" name="amount_choice" value="other" /><span>סכום אחר</span></label>
+            <div id="otherAmountWrap" class="hidden" style="margin-top:12px"><label class="field-label" for="otherAmount">סכום בשקלים</label><input class="input" id="otherAmount" type="number" name="other_amount" min="1" step="1" placeholder="לדוגמה: 75" /></div>
+          </fieldset></div>
+          <div class="form-group"><fieldset>
+            <legend>אופן השתתפות</legend>
+            <div class="twocol">
+              <label class="choice choice-small"><input type="radio" name="frequency" value="חודשית בתיאום אישי" /><span>חודשית</span></label>
+              <label class="choice choice-small"><input type="radio" name="frequency" value="חד-פעמית" checked /><span>חד־פעמית</span></label>
+            </div>
+            <div class="hint">בחירת השתתפות חודשית – בתיאום מולכם, באופן שנוח לכם וללא התחייבות. לא מתבצע חיוב אוטומטי.</div>
+          </fieldset></div>
+          <div class="form-group"><label class="field-label" for="dedication">הקדשה נוספת (לא חובה)</label>
+            <select class="input" name="dedication_type" id="dedication">
+              <option value="ללא הקדשה נוספת">ללא הקדשה נוספת</option><option value="לעילוי נשמה">לעילוי נשמה</option><option value="לרפואה שלמה">לרפואה שלמה</option><option value="לזיווג הגון">לזיווג הגון</option><option value="להצלחה ולישועה">להצלחה ולישועה</option>
+            </select>
+            <div id="dedicationNameWrap" class="hidden" style="margin-top:12px"><label class="field-label" for="dedicationName">שם להקדשה</label><input class="input" id="dedicationName" name="dedication_name" type="text" maxlength="140" placeholder="שם ושם האם / האב לפי הצורך" /></div>
+          </div>
+          <div class="twocol form-group">
+            <div><label class="field-label" for="fullName">שם מלא *</label><input class="input" id="fullName" name="full_name" type="text" autocomplete="name" maxlength="120" required /></div>
+            <div><label class="field-label" for="phone">טלפון *</label><input class="input" id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="25" required /></div>
+          </div>
+          <div class="form-group"><label class="field-label" for="email">כתובת דוא״ל (לא חובה)</label><input class="input" id="email" name="email" type="email" autocomplete="email" maxlength="160" placeholder="לקבלת קישור התשלום גם במייל" /></div>
+          <div class="form-group"><label class="field-label" for="notes">הערה נוספת (לא חובה)</label><textarea class="input" name="notes" id="notes" maxlength="400" placeholder="בקשה מיוחדת או פרטים שחשוב שנדע"></textarea></div>
+          <input type="hidden" name="selected_amount_ils" id="finalAmount" value="50" />
+          <div class="disclaimer">הטופס הוא בקשת שותפות בלבד. אין חיוב כספי בשלב זה. לאחר קבלת הבקשה תישלח אליכם דרישת תשלום אישית.</div>
+          <button class="button" type="submit" id="submitBtn" style="width:100%">שליחת בקשת שותפות</button>
+          <p class="smallprint">הפרטים ישמשו ליצירת קשר בנוגע לבקשה ולשליחת דרישת תשלום. אין למסור פרטי אשראי בטופס.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer class="footer wrap"><strong>כולל מוצאי שבת</strong> • לעילוי נשמת אנט בת כרמלה ז״ל</footer>
+  <script>
+    const form=document.getElementById('partnerForm');
+    const otherWrap=document.getElementById('otherAmountWrap');
+    const otherInput=document.getElementById('otherAmount');
+    const dedSelect=document.getElementById('dedication');
+    const dedWrap=document.getElementById('dedicationNameWrap');
+    const dedName=document.getElementById('dedicationName');
+    function sync(){
+      const choice=form.querySelector('input[name="amount_choice"]:checked').value;
+      const other=choice==='other';otherWrap.classList.toggle('hidden',!other);otherInput.required=other;
+      otherInput.disabled=!other;
+      document.getElementById('finalAmount').value=other?otherInput.value:choice;
+      const dedicated=dedSelect.value!=='ללא הקדשה נוספת';dedWrap.classList.toggle('hidden',!dedicated);dedName.disabled=!dedicated;
+    }
+    form.addEventListener('change',sync);otherInput.addEventListener('input',sync);sync();
+    form.addEventListener('submit',(event)=>{
+      sync();
+      const amount=Number(document.getElementById('finalAmount').value);
+      if(!Number.isInteger(amount)||amount<1){event.preventDefault();alert('נא לבחור סכום שותפות תקין');otherInput.focus();return;}
+      // The site must be hosted on Netlify with Forms enabled for submissions to be delivered.
+    });
+  </script>
+</body>
+</html>
