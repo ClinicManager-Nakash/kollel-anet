@@ -90,7 +90,7 @@
               </select>
               <div class="payment-instructions hidden" id="paymentInstructions" aria-live="polite" style="margin-top:12px"></div>
               <fieldset id="transferConfirmationWrap" class="hidden" style="margin-top:14px">
-                <legend>סטטוס ההעברה</legend>
+                <legend>סטטוס ההעברה (יש לבחור אפשרות)</legend>
                 <div class="twocol">
                   <label class="choice choice-small"><input type="radio" name="transfer_status" value="כבר ביצעתי העברה" disabled /><span>כבר ביצעתי העברה</span></label>
                   <label class="choice choice-small"><input type="radio" name="transfer_status" value="אבצע את ההעברה בהמשך" disabled /><span>אבצע את ההעברה בהמשך</span></label>
@@ -136,7 +136,7 @@
           <div class="form-group"><label class="field-label" for="email">כתובת דוא״ל (לא חובה)</label><input class="input" id="email" name="email" type="email" autocomplete="email" maxlength="160" placeholder="לקבלת קישור התשלום גם במייל" /></div>
           <div class="form-group"><label class="field-label" for="notes">הערה נוספת (לא חובה)</label><textarea class="input" name="notes" id="notes" maxlength="400" placeholder="בקשה מיוחדת או פרטים שחשוב שנדע"></textarea></div>
           <input type="hidden" name="selected_amount_ils" id="finalAmount" value="50" />
-          <div class="disclaimer">הטופס הוא בקשת שותפות בלבד ואינו מבצע חיוב. בבחירת אשראי יישלח קישור לתשלום; בבחירת ביט או העברה בנקאית יש לבצע את ההעברה בנפרד. קבלת הכסף נבדקת לאחר מכן.</div>
+          <div class="disclaimer">הטופס הוא בקשת שותפות בלבד ואינו מבצע חיוב. בבחירת אשראי או ביט תישלח דרישת תשלום; בבחירת העברה בנקאית יש לבצע את ההעברה בהתאם לפרטים המוצגים. קבלת הכסף נבדקת לאחר מכן.</div>
           <label class="privacy-consent"><input type="checkbox" name="privacy_consent" value="אישור שימוש בפרטים לצורך בקשת השותפות" required /> <span>אני מאשר/ת שימוש בפרטים שמסרתי לצורך טיפול בבקשת השותפות ויצירת קשר, לרבות העברתם באמצעות שירות FormSubmit לשליחת המייל.</span></label>
           <button class="button" type="submit" id="submitBtn" style="width:100%">שליחת בקשת שותפות</button>
           <p class="smallprint">פרטיכם ישמשו לטיפול בבקשה בלבד ויועברו דרך שירות FormSubmit, המספק את מערכת משלוח הטפסים. אין להזין כאן פרטי אשראי או מידע רפואי אישי. ניתן לפנות למארגן הכולל בכל שאלה בנוגע לפרטים שנמסרו.</p>
@@ -179,14 +179,14 @@
       let info='';
       if(method==='אשראי') info='לאחר קבלת הבקשה נשלח אליכם קישור מאובטח להזנת פרטי האשראי ולהסדרת ההשתתפות.';
       if(method==='אחר – צרו איתי קשר') info='לאחר קבלת הבקשה ניצור עמכם קשר לתיאום אופן התשלום.';
-      if(method==='ביט') info='נא להעביר את סכום ההשתתפות באמצעות ביט למספר 058-5657365.\nבפרטי ההעברה יש לציין: עבור כולל מוצ"ש.';
+      if(method==='ביט') info='לאחר קבלת הבקשה תישלח אליכם דרישת תשלום בגובה הסכום שבחרתם.';
       if(method==='העברה בנקאית') info='פרטי העברה: בנק לאומי (10), סניף 940, חשבון 7237549, על שם אליהו נקש. נא לציין בהערה: עבור כולל מוצ"ש.';
       paymentInstructions.textContent=info;
       paymentInstructions.classList.toggle('hidden',!info);
-      const bankOrBit=!monthly && (method==='ביט'||method==='העברה בנקאית');
-      transferConfirmationWrap.classList.toggle('hidden',!bankOrBit);
-      for(const radio of transferStatusRadios){radio.disabled=!bankOrBit;radio.required=bankOrBit;}
-      if(!bankOrBit)for(const radio of transferStatusRadios)radio.checked=false;
+      const bankTransfer=!monthly && method==='העברה בנקאית';
+      transferConfirmationWrap.classList.toggle('hidden',!bankTransfer);
+      for(const radio of transferStatusRadios){radio.disabled=!bankTransfer;radio.required=bankTransfer;}
+      if(!bankTransfer)for(const radio of transferStatusRadios)radio.checked=false;
       const dedicated=dedSelect.value!=='ללא הקדשה נוספת';dedWrap.classList.toggle('hidden',!dedicated);dedName.disabled=!dedicated;dedDate.disabled=!dedicated;
     }
     form.addEventListener('change',sync);otherInput.addEventListener('input',sync);sync();
