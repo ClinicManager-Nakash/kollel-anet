@@ -17,7 +17,7 @@ const method=params.get('method'),transfer=params.get('transfer');
 const msg=document.getElementById('instructions');
 if(method==='credit'){msg.textContent='לאחר קבלת הבקשה נשלח אליכם קישור מאובטח להזנת פרטי האשראי ולהסדרת ההשתתפות.';}
 else if(method==='contact'){msg.textContent='קיבלנו את בקשתכם. ניצור עמכם קשר לתיאום אופן התשלום.';}
-else if(method==='bit'){msg.textContent='תשלום בביט למספר 058-5657365.\nבפרטי ההעברה יש לציין: עבור כולל מוצ"ש.';}
+else if(method==='bit'){msg.textContent='לאחר קבלת הבקשה תישלח אליכם דרישת תשלום בגובה הסכום שבחרתם.';}
 else if(method==='bank'){msg.textContent='פרטי העברה: בנק לאומי (10), סניף 940, חשבון 7237549, על שם אליהו נקש.\nבהערה יש לציין: עבור כולל מוצ"ש.';}
 if(transfer==='sent'){document.getElementById('pending').textContent='ציינתם שביצעתם את ההעברה. תודה! נבדוק את קבלתה בפועל. הטופס עצמו אינו מהווה אישור תשלום.';}
 else if(transfer==='later'){document.getElementById('pending').textContent='ציינתם שתבצעו את ההעברה לאחר שליחת הטופס. השותפות תושלם לאחר ביצוע התשלום ואימות קבלתו.';}
