@@ -81,6 +81,19 @@
               <label class="choice choice-small"><input type="radio" name="frequency" value="חודשית בתיאום אישי" checked /><span>חודשית</span></label>
               <label class="choice choice-small"><input type="radio" name="frequency" value="חד-פעמית" /><span>חד־פעמית</span></label>
             </div>
+          </fieldset></div>
+          <div class="form-group"><fieldset>
+            <legend>בחרו סכום <span class="amount-legend-note">400 ₪ – עלות אחזקת אברך לחודש</span></legend>
+            <div class="amounts">
+              <label class="choice"><input type="radio" name="amount_choice" value="50" checked /><span>50 ₪</span></label>
+              <label class="choice"><input type="radio" name="amount_choice" value="100" /><span>100 ₪</span></label>
+              <label class="choice"><input type="radio" name="amount_choice" value="200" /><span>200 ₪</span></label>
+              <label class="choice"><input type="radio" name="amount_choice" value="400" /><span>400 ₪</span></label>
+            </div>
+            <label class="choice choice-small" style="margin-top:10px;max-width:180px"><input type="radio" name="amount_choice" value="other" /><span>סכום אחר</span></label>
+            <div id="otherAmountWrap" class="hidden" style="margin-top:12px"><label class="field-label" for="otherAmount">סכום בשקלים</label><input class="input" id="otherAmount" type="number" name="other_amount" min="1" step="1" placeholder="לדוגמה: 75" /></div>
+          </fieldset></div>
+          <div class="form-group">
             <div id="paymentMethodWrap" style="margin-top:14px">
               <label class="field-label" for="paymentMethod">אופן הסדרת התשלום</label>
               <select class="input" id="paymentMethod" name="payment_method" required>
@@ -99,18 +112,7 @@
               </fieldset>
             </div>
             <div class="monthly-note" id="frequencyNote">השתתפות חודשית תוסדר בתיאום אישי, באופן שנוח לכם וללא התחייבות. הבחירה בטופס אינה מפעילה חיוב חוזר או הוראת קבע.</div>
-          </fieldset></div>
-          <div class="form-group"><fieldset>
-            <legend>בחרו סכום <span class="amount-legend-note">400 ₪ – עלות אחזקת אברך לחודש</span></legend>
-            <div class="amounts">
-              <label class="choice"><input type="radio" name="amount_choice" value="50" checked /><span>50 ₪</span></label>
-              <label class="choice"><input type="radio" name="amount_choice" value="100" /><span>100 ₪</span></label>
-              <label class="choice"><input type="radio" name="amount_choice" value="200" /><span>200 ₪</span></label>
-              <label class="choice"><input type="radio" name="amount_choice" value="400" /><span>400 ₪</span></label>
-            </div>
-            <label class="choice choice-small" style="margin-top:10px;max-width:180px"><input type="radio" name="amount_choice" value="other" /><span>סכום אחר</span></label>
-            <div id="otherAmountWrap" class="hidden" style="margin-top:12px"><label class="field-label" for="otherAmount">סכום בשקלים</label><input class="input" id="otherAmount" type="number" name="other_amount" min="1" step="1" placeholder="לדוגמה: 75" /></div>
-          </fieldset></div>
+          </div>
           <div class="form-group"><label class="field-label" for="dedication">הקדשת הלימוד (לא חובה)</label>
             <select class="input" name="dedication_type" id="dedication">
               <option value="ללא הקדשה נוספת">ללא הקדשה</option>
