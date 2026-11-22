@@ -113,6 +113,11 @@
             </div>
             <div class="monthly-note" id="frequencyNote">השתתפות חודשית תוסדר בתיאום אישי, באופן שנוח לכם וללא התחייבות. הבחירה בטופס אינה מפעילה חיוב חוזר או הוראת קבע.</div>
           </div>
+          <div class="twocol form-group">
+            <div><label class="field-label" for="fullName">שם מלא *</label><input class="input" id="fullName" name="full_name" type="text" autocomplete="name" maxlength="120" required /></div>
+            <div><label class="field-label" for="phone">טלפון *</label><input class="input" id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="25" required /></div>
+          </div>
+          <div class="form-group"><label class="field-label" for="email">כתובת דוא״ל (לא חובה)</label><input class="input" id="email" name="email" type="email" autocomplete="email" maxlength="160" placeholder="לקבלת קישור התשלום גם במייל" /></div>
           <div class="form-group"><label class="field-label" for="dedication">הקדשת הלימוד (לא חובה)</label>
             <select class="input" name="dedication_type" id="dedication">
               <option value="ללא הקדשה נוספת">ללא הקדשה</option>
@@ -131,11 +136,6 @@
               <div class="hint">המועד המבוקש כפוף לתיאום ולאישור מראש.</div>
             </div>
           </div>
-          <div class="twocol form-group">
-            <div><label class="field-label" for="fullName">שם מלא *</label><input class="input" id="fullName" name="full_name" type="text" autocomplete="name" maxlength="120" required /></div>
-            <div><label class="field-label" for="phone">טלפון *</label><input class="input" id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="25" required /></div>
-          </div>
-          <div class="form-group"><label class="field-label" for="email">כתובת דוא״ל (לא חובה)</label><input class="input" id="email" name="email" type="email" autocomplete="email" maxlength="160" placeholder="לקבלת קישור התשלום גם במייל" /></div>
           <div class="form-group"><label class="field-label" for="notes">הערה נוספת (לא חובה)</label><textarea class="input" name="notes" id="notes" maxlength="400" placeholder="בקשה מיוחדת או פרטים שחשוב שנדע"></textarea></div>
           <input type="hidden" name="selected_amount_ils" id="finalAmount" value="50" />
           <div class="disclaimer">הטופס הוא בקשת שותפות בלבד ואינו מבצע חיוב. בבחירת אשראי או ביט תישלח דרישת תשלום; בבחירת העברה בנקאית יש לבצע את ההעברה בהתאם לפרטים המוצגים. קבלת הכסף נבדקת לאחר מכן.</div>
