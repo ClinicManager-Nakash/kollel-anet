@@ -39,6 +39,17 @@
     .hero-cta{clear:both;margin-top:20px}
     @media(max-width:850px){.hero-cta{text-align:center}}
     @media(max-width:420px){.hero-content .stat strong,.hero-content .stat span{font-size:14px}}
+
+    /* Mobile: memorial cover is edge-to-edge without surrounding borders. */
+    @media(max-width:600px){
+      .hero .wrap.hero-layout{display:block;padding:0 0 48px;max-width:100%}
+      .hero-content{padding:0 20px;text-align:center}
+      .hero .hero-cover{float:none;display:block;width:calc(100% + 40px);max-width:none;height:auto;margin:0 -20px 24px;border:0;border-radius:0;box-shadow:none}
+      .hero-content h1{margin:0 auto 19px}
+      .hero-content p{margin:0 auto 25px}
+      .hero-content .stats{clear:both;margin-top:24px}
+      .hero-content .stat strong,.hero-content .stat span{font-size:clamp(13px,4.2vw,18px)}
+    }
   </style>
 </head>
 <body>
