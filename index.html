@@ -22,10 +22,12 @@
     .monthly-note{background:#fff7e7;border:1px solid #e9d4a9;border-right:4px solid #b18a51;border-radius:10px;color:#684718;font-size:14px;font-weight:700;line-height:1.65;padding:12px 14px;margin-top:13px}
     .privacy-consent{display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#364a52;margin:15px 0}.privacy-consent input{width:19px;height:19px;flex:none;accent-color:#8b622f;margin-top:4px}
 .hero .wrap.hero-layout{max-width:1240px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.92fr);align-items:center;gap:42px;padding:64px 28px 70px;text-align:right}
+    .hero-cover{float:right;width:170px;max-width:37%;margin:0 0 16px 21px;display:block;border-radius:12px;box-shadow:0 12px 30px #0005;border:1px solid #ffffff45;overflow:hidden}.hero-content .stats{clear:both}
     .hero-content{min-width:0}.hero-content h1{font-size:clamp(38px,4.1vw,58px);margin:0 0 19px;max-width:none}.hero-content p{margin:0 0 25px;max-width:590px;font-size:18px}
     .hero-content .stats{justify-content:flex-start;gap:10px;margin-top:30px;flex-wrap:nowrap}.hero-content .stat{min-width:0;flex:1;padding:11px 9px}
     .hero-photo{margin:0;min-width:0;text-align:center}.hero-photo img{width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:18px;display:block;box-shadow:0 16px 40px #0005;border:1px solid #ffffff35}.hero-photo figcaption{color:#e4d6c4;font-size:12px;margin-top:10px}
     @media(max-width:850px){.hero .wrap.hero-layout{grid-template-columns:1fr;gap:28px;padding:46px 20px 55px}.hero-content{text-align:center}.hero-content h1{font-size:clamp(36px,7vw,56px)}.hero-content p{margin:0 auto 24px}.hero-content .stats{justify-content:center}.hero-photo{width:min(100%,620px);margin:0 auto}.hero-photo img{aspect-ratio:16/10}}
+    @media(max-width:850px){.hero-cover{float:none;width:150px;max-width:46%;margin:0 0 18px auto}}
     @media(max-width:420px){.hero-content .stats{gap:6px}.hero-content .stat{padding:10px 5px}.hero-content .stat strong{font-size:18px}.hero-content .stat span{font-size:11px}}
     .amount-legend-note{display:inline-block;font-size:13px;font-weight:400;color:#6d7678;margin-inline-start:12px}
     @media(max-width:600px){.hero .wrap{padding:47px 18px 55px}.hero p{font-size:16px}.stats{gap:8px}.stat{min-width:0;flex:1;padding:11px 8px}.stat strong{font-size:20px}.story{margin:38px auto}.story p{font-size:16px}.amounts{grid-template-columns:repeat(2,1fr)}.twocol{grid-template-columns:1fr}.join{margin-top:38px}.band{font-size:17px}.form-card{padding:20px}}
@@ -35,6 +37,7 @@
   <header class="hero">
     <div class="wrap hero-layout">
       <div class="hero-content">
+        <img class="hero-cover" src="./memorial-cover.svg" width="170" height="237" alt="קאבר הסרטון: היא הצילה את חיי, ועכשיו תורי לעשות למענה, לעילוי נשמת אנט בת כרמלה ז״ל" loading="eager" decoding="async">
         <h1>ממשיכים את <em>האור שלה</em></h1>
         <p>שנה שלמה של לימוד תורה לעילוי נשמת אנט בת כרמלה ז״ל הושלמה.<br>כעת אנחנו זקוקים לכם כדי שהלימוד יוכל להימשך.</p>
         <a class="button" href="#join">אני רוצה להיות שותף</a>
