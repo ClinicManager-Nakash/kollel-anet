@@ -32,55 +32,33 @@
     .amount-legend-note{display:inline-block;font-size:13px;font-weight:400;color:#6d7678;margin-inline-start:12px}
     @media(max-width:600px){.hero .wrap{padding:47px 18px 55px}.hero p{font-size:16px}.stats{gap:8px}.stat{min-width:0;flex:1;padding:11px 8px}.stat strong{font-size:20px}.story{margin:38px auto}.story p{font-size:16px}.amounts{grid-template-columns:repeat(2,1fr)}.twocol{grid-template-columns:1fr}.join{margin-top:38px}.band{font-size:17px}.form-card{padding:20px}}
 
-    /* Landing-page hero: large cover on the right; clear full-width image on mobile. */
-    .hero .wrap.hero-layout{max-width:1080px;display:block;padding:42px 28px 54px;text-align:initial}
-    .hero-main{display:grid;grid-template-columns:minmax(0,385px) minmax(0,1fr);gap:45px;align-items:center}
-    .hero .hero-cover{float:none;display:block;width:100%;max-width:none;height:auto;margin:0;border:none;border-radius:14px;box-shadow:0 18px 35px #0005;overflow:visible}
-    .hero-content{min-width:0;text-align:right}
-    .hero-content h1{font-size:clamp(38px,5vw,60px);margin:0 0 19px}
-    .hero-content p{margin:0;font-size:18px;max-width:570px}
-    .hero-bottom{text-align:center;margin:26px auto 0}
-    .hero-bottom .stats{display:flex;justify-content:center;gap:12px;flex-wrap:nowrap;margin:0 auto 20px;max-width:740px}
-    .hero-bottom .stat{min-width:0;flex:1;padding:15px 8px}
-    .hero-bottom .stat strong,.hero-bottom .stat span{display:block;font-size:20px;line-height:1.28;font-weight:700}
-    .hero-bottom .stat strong{color:#f5d8a5}
-    .hero-bottom .stat span{color:#fff}
-    .study-photo{max-width:620px;margin:0 auto 46px;text-align:center}
-    .study-photo img{width:100%;height:auto;border-radius:17px;display:block;box-shadow:0 12px 30px #26343a1a}
-    .study-photo figcaption{font-size:12px;color:#6a7477;margin-top:9px}
-    @media(max-width:850px){
-      .hero .wrap.hero-layout{padding:0 0 45px}
-      .hero-main{display:flex;flex-direction:column;align-items:stretch;gap:0}
-      .hero .hero-cover{display:block;width:100%;max-width:none;border-radius:0;margin:0;border:0;box-shadow:none}
-      .hero-content{text-align:center;padding:24px 20px 0}
-      .hero-content h1{font-size:clamp(36px,7vw,56px);margin:0 0 16px}
-      .hero-content p{margin:0 auto;font-size:16px}
-      .hero-bottom{padding:0 14px;margin-top:22px}
-      .hero-bottom .stats{gap:7px;margin:0 auto 22px;flex-wrap:nowrap}
-      .hero-bottom .stat{padding:12px 4px}
-      .hero-bottom .stat strong,.hero-bottom .stat span{font-size:clamp(13px,4.1vw,19px);line-height:1.25}
-      .study-photo{padding:0 20px}
-    }
+
+    .hero-content .stats{clear:both}
+    .hero-content .stat strong,.hero-content .stat span{font-size:18px;font-weight:700;line-height:1.25;display:block}
+    .hero-content .stat span{color:#fff}
+    .hero-cta{clear:both;margin-top:20px}
+    @media(max-width:850px){.hero-cta{text-align:center}}
+    @media(max-width:420px){.hero-content .stat strong,.hero-content .stat span{font-size:14px}}
   </style>
 </head>
 <body>
   <header class="hero">
     <div class="wrap hero-layout">
-      <div class="hero-main">
+      <div class="hero-content">
         <img class="hero-cover" src="./memorial-cover.svg" width="170" height="237" alt="היא הצילה את חיי, ועכשיו תורי לעשות למענה, לעילוי נשמת אנט בת כרמלה ז״ל" fetchpriority="high">
-        <div class="hero-content">
-          <h1>ממשיכים את <em>האור שלה</em></h1>
-          <p>שנה שלמה של לימוד תורה לעילוי נשמת אנט בת כרמלה ז״ל הושלמה.<br>כעת אנחנו זקוקים לכם כדי שהלימוד יוכל להימשך.</p>
-        </div>
-      </div>
-      <div class="hero-bottom">
+        <h1>ממשיכים את <em>האור שלה</em></h1>
+        <p>שנה שלמה של לימוד תורה לעילוי נשמת אנט בת כרמלה ז״ל הושלמה.<br>כעת אנחנו זקוקים לכם כדי שהלימוד יוכל להימשך.</p>
         <div class="stats" aria-label="נתוני הכולל">
           <div class="stat"><strong>4</strong><span>אברכים</span></div>
           <div class="stat"><strong>שעתיים</strong><span>לימוד</span></div>
           <div class="stat"><strong>₪1,600</strong><span>עלות חודשית</span></div>
         </div>
-        <a class="button" href="#join">אני רוצה להיות שותף</a>
+        <div class="hero-cta"><a class="button" href="#join">אני רוצה להיות שותף</a></div>
       </div>
+      <figure class="hero-photo">
+        <img src="./kollel-study.jpg" alt="המחשה: ארבעה אברכים לומדים יחד בבית מדרש" width="1448" height="1086" fetchpriority="high">
+        <figcaption>תמונת המחשה ללימוד תורה בבית המדרש</figcaption>
+      </figure>
     </div>
   </header>
   <main>
@@ -95,10 +73,7 @@
       <p><strong>אבל כעת, בתום השנה, בלי שותפות הציבור לא אוכל להמשיך להחזיק את הכולל.</strong></p>
       <p>אני מזמין אתכם להיות שותפים בהמשך לימוד התורה, בכל סכום שתבחרו.</p>
     </section>
-    <figure class="study-photo wrap">
-      <img src="./kollel-study.jpg" alt="המחשה: ארבעה אברכים לומדים יחד בבית מדרש" width="1448" height="1086" loading="lazy">
-      <figcaption>תמונת המחשה ללימוד תורה בבית המדרש</figcaption>
-    </figure>
+
     <div class="band"><div class="wrap">ההתחייבות לשנה הסתיימה.<br><strong>האפשרות להמשיך – בידיים של כולנו.</strong></div></div>
     <section class="join wrap" id="join" aria-labelledby="join-heading">
       <div class="overline" style="text-align:center">בקשת שותפות</div>
